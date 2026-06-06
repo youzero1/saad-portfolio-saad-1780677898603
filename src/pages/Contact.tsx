@@ -1,24 +1,42 @@
+import { useState } from "react";
+
 export default function Contact() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    // Handle form submission
+    console.log({ name, email, message });
+  };
+
   return (
     <section className="min-h-screen flex flex-col items-center justify-center text-center px-4 py-20">
       <h2 className="text-4xl font-bold text-gray-900 mb-6">Get in Touch</h2>
       <p className="text-lg text-gray-600 max-w-lg mb-8">
         Have a project in mind? Let's talk about it. Send me a message and I'll get back to you.
       </p>
-      <form className="w-full max-w-lg space-y-4" onSubmit={(e: any) => e.preventDefault()}>
+      <form className="w-full max-w-lg space-y-4" onSubmit={handleSubmit}>
         <input
           type="text"
           placeholder="Your Name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
           className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand"
         />
         <input
           type="email"
           placeholder="Your Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
           className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand"
         />
         <textarea
           placeholder="Your Message"
           rows={4}
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
           className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand"
         />
         <button
