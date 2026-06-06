@@ -36,7 +36,7 @@ export default function Projects() {
               {project.tech.map((t) => (
                 <span
                   key={t}
-                  className="bg-brand text-white text-sm px-3 py-1 rounded-full"
+                  className="bg-blue-600 text-white text-sm px-3 py-1 rounded-full"
                 >
                   {t}
                 </span>
@@ -47,7 +47,7 @@ export default function Projects() {
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-brand font-medium hover:underline"
+                className="text-blue-600 font-medium hover:underline"
               >
                 Live Demo →
               </a>
